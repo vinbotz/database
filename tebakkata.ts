@@ -5,7 +5,7 @@ export let tebakkatajson: TebakKata[]
 export default async function tebakkata (): Promise<TebakKata> {
   if (!tebakkatajson) {
     tebakkatajson = await got(
-      'https://raw.githubusercontent.com/vinbotz/database/master/tebakkata.json'
+      'https://raw.githubusercontent.com/vinbotz/database/master/tebakkata.json?token=GHSAT0AAAAAACS777XLRPVB4XVR4ZK2WEAMZSY7OQA'
     ).json()
   }
   return TebakKataSchema.parse(
