@@ -1,42 +1,90 @@
-import asahotak, { asahotakjson } from './src/asahotak.js'
-import caklontong, { caklontongjson } from './src/caklontong.js'
-import family100, { family100json } from './src/family100.js'
-import siapakahaku, { siapakahakujson } from './src/siapakahaku.js'
-import susunkata, { susunkatajson } from './src/susunkata.js'
-import tebakbendera, { tebakbenderajson } from './src/tebakbendera.js'
-import tebakgambar, { tebakgambarjson } from './src/tebakgambar.js'
-import tebakkabupaten, { tebakkabupatenjson } from './src/tebakkabupaten.js'
-import tebakkata, { tebakkatajson } from './tebakkata.js'
-import tebakkimia, { tebakkimiajson } from './src/tebakkimia.js'
-import tebaklirik, { tebaklirikjson } from './src/tebaklirik.js'
-import tebaktebakan, { tebaktebakanjson } from './src/tebaktebakan.js'
-import tekateki, { tekatekijson } from './src/tekateki.js'
+import { z } from 'zod'
 
-export {
-  tebakgambar,
-  tebakgambarjson,
-  caklontong,
-  caklontongjson,
-  family100,
-  family100json,
-  asahotak,
-  asahotakjson,
-  tebakkata,
-  tebakkatajson,
-  tekateki,
-  tekatekijson,
-  tebakkimia,
-  tebakkimiajson,
-  tebakkabupaten,
-  tebakkabupatenjson,
-  siapakahaku,
-  siapakahakujson,
-  susunkata,
-  susunkatajson,
-  tebakbendera,
-  tebakbenderajson,
-  tebaklirik,
-  tebaklirikjson,
-  tebaktebakan,
-  tebaktebakanjson
-}
+export const AsahOtakSchema = z.object({
+    index: z.number(),
+    soal: z.string(),
+    jawaban: z.string()
+})
+export type AsahOtak = z.infer<typeof AsahOtakSchema>
+
+export const CakLontongSchema = z.object({
+    index: z.number(),
+    soal: z.string(),
+    jawaban: z.string(),
+    deskripsi: z.string()
+})
+export type CakLontong = z.infer<typeof CakLontongSchema>
+
+export const Family100Schema = z.object({
+    soal: z.string(),
+    jawaban: z.array(z.string())
+})
+export type Family100 = z.infer<typeof Family100Schema>
+
+export const SiapakahAkuSchema = z.object({
+    index: z.number(),
+    soal: z.string(),
+    jawaban: z.string()
+})
+export type SiapakahAku = z.infer<typeof SiapakahAkuSchema>
+
+export const SusunKataSchema = z.object({
+    index: z.number(),
+    soal: z.string(),
+    tipe: z.string(),
+    jawaban: z.string()
+})
+export type SusunKata = z.infer<typeof SusunKataSchema>
+
+export const TebakBenderaSchema = z.object({
+    flag: z.string(),
+    img: z.string(),
+    name: z.string()
+})
+export type TebakBendera = z.infer<typeof TebakBenderaSchema>
+
+export const TebakGambarSchema = z.object({
+    index: z.number(),
+    img: z.string(),
+    jawaban: z.string(),
+    deskripsi: z.string()
+})
+export type TebakGambar = z.infer<typeof TebakGambarSchema>
+
+export const TebakKabupatenSchema = z.object({
+    index: z.number(),
+    title: z.string(),
+    url: z.string()
+})
+export type TebakKabupaten = z.infer<typeof TebakKabupatenSchema>
+
+export const TebakKataSchema = z.object({
+    index: z.number(),
+    soal: z.string(),
+    jawaban: z.string()
+})
+export type TebakKata = z.infer<typeof TebakKataSchema>
+
+export const TebakKimiaSchema = z.object({
+    unsur: z.string(),
+    lambang: z.string()
+})
+export type TebakKimia = z.infer<typeof TebakKimiaSchema>
+
+export const TebakLirikSchema = z.object({
+    soal: z.string(),
+    jawaban: z.string()
+})
+export type TebakLirik = z.infer<typeof TebakLirikSchema>
+
+export const TebakTebakanSchema = z.object({
+    soal: z.string(),
+    jawaban: z.string()
+})
+export type TebakTebakan = z.infer<typeof TebakTebakanSchema>
+
+export const TekaTekiSchema = z.object({
+    soal: z.string(),
+    jawaban: z.string()
+})
+export type TekaTeki = z.infer<typeof TekaTekiSchema>
